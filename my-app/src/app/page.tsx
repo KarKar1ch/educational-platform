@@ -5,20 +5,13 @@ import Button from '@/components/Button';
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="text-3xl">
+      <div className="bg-red-500 text-white p-4">
+        XUI
+      </div>
       <Header/>
       <main>
-        <div>
-          <div>
-            <div>
-              <h1>Text</h1>
-            </div>
-            <div>
-              <Button>text</Button>
-              <Button>text</Button>
-            </div>
-          </div>
-        </div>
+
       </main>
       <Footer/>
     </div>
