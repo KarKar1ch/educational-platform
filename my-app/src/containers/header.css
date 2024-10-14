@@ -1,0 +1,11 @@
+/* .sun-icon,
+.moon-icon{
+    display: none;
+}
+
+.themes[data-icon = 'sun'] .sun-icon{
+    display:block
+}
+.themes[data-icon = 'moon'] .moon-icon{
+    display:block
+} */
