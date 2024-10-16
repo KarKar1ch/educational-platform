@@ -14,7 +14,7 @@ module.exports = {
   			navbar: '0px 0px 10px black'
   		},
   		fontFamily: {
-  			'nav-logo': ['Aclonica','san-serif']
+  			'aclonica': ['Aclonica','san-serif']
   		},
       backgroundColor:{
         'dBlue-lBlue':'linear-gradient(to bottom, #124AE4, #4C77EC);'

@@ -8,7 +8,7 @@ const Header = () => {
     return(
         <header>
             <nav className="z-10 shadow-navbar p-2 flex relative h-[100px] w-full">
-                <a href="/home" className="flex text-[32px] font-nav-logo ml-[100px] my-auto relative w-auto">Educational Platform</a>
+                <a href="/home" className="flex text-[32px] font-aclonica ml-[100px] my-auto relative w-auto">Educational Platform</a>
                 <img src="/img/leaf.png" alt="" className="flex relative my-auto w-[50px] h-[50px]" />
                 <div className="flex relative my-auto text-[20px]">
                     <ul className="flex relative ml-[100px] w-auto">
