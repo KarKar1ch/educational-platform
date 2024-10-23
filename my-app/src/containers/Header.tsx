@@ -13,11 +13,11 @@ const Header = () => {
                 <div className="flex relative my-auto text-[20px]">
                     <ul className="flex relative ml-[100px] w-auto">
                         <li className="mx-[20px]">
-                            <span className="flex relative">
+                            <button className="flex relative">
                                 <img src="/icons/category.png" className="w-[16px] h-[16px] mr-1 my-auto" alt="" />
                                 Catalog
                                 <img src="/icons/down-arrow.png" className="w-[18px] h-[18px] my-auto" alt="" />
-                            </span>
+                            </button>
                         </li>
                         <li className="mx-[20px]">
                             <a href='/about' className="flex relative ">
@@ -25,9 +25,9 @@ const Header = () => {
                             </a>
                         </li>
                         <li className="mx-[20px]">
-                            <span className="flex relative ">
+                            <button className="flex relative ">
                                 Support
-                            </span>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -40,11 +40,11 @@ const Header = () => {
                     </div>
                     <span className="flex items-center relative w-[2px] h-[30px] mx-[20px] bg-[#3415D0]"></span>
                     <div className={"flex relative themes items-center"}data-icon={'sun'}>
-                        <Sun/>
+                        <button><Sun/></button>
                     </div>
                     <div className="flex items-center realtive mx-[20px]">
                         <img src="/icons/earth-grid.png" className="w-[20px] h-[20px] my-auto" alt="" />
-                        <span>Eng</span>
+                        <button>Eng</button>
                         <img src="/icons/down-arrow.png" className="w-[16px] h-[16px] my-auto" alt="" />
                     </div>
                 </div>
