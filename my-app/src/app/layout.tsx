@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}:any) {
   return (
     <html lang="en" className="w-[100%] h-[100%]">
-      <body className="">
+      <body className="w-full">
         <Header/>
           {children}
       </body>

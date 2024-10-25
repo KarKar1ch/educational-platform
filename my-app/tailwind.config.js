@@ -18,6 +18,9 @@ module.exports = {
   		},
       backgroundColor:{
         'dBlue-lBlue':'linear-gradient(to bottom, #124AE4, #4C77EC);'
+      },
+      transitionProperty:{
+        'ease-in-out':'transition:ease-in-out 0.5s'
       }
   	}
   },

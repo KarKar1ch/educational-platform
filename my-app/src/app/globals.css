@@ -15,6 +15,7 @@
   }
   .clip-img{
     clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: relative;
   }
 }
 
