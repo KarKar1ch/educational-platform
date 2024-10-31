@@ -1,6 +1,6 @@
 
 import Header from "@/containers/Header";
-import "./globals.css";
+import "@/app/globals.css";
 import type { Metadata } from "next";
 
 
@@ -13,6 +13,7 @@ export default function RootLayout({children}:any) {
   return (
     <html lang="en" className="w-[100%] h-[100%]">
       <body className="w-full">
+        <Header/>
           {children}
       </body>
     </html>

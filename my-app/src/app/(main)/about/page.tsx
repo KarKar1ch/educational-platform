@@ -23,10 +23,10 @@ export default function Home() {
                 </div>
                 <div className='flex relative ml-[50px] mr-auto w-[570px] min-w-[200px] my-3'>
                   <div className='flex rounded-lg mr-4 relative font-aclonica text-[#5D82EB] text-[22px]'>
-                    <a className='flex rounded-lg p-2 cursor-pointer bg-center relative w-[150px] bg-slate-100'>Start studying</a>
+                    <a className='flex rounded-lg p-2 cursor-pointer bg-center relative w-[150px] bg-slate-100' href='/home'>Start studying</a>
                   </div>
                   <div className='flex rounded-lg relative font-aclonica text-white text-[22px]'>
-                    <a className='flex rounded-lg cursor-pointer p-2 bg-center relative w-[175px] font-aclonica border-[1px] border-slate-100'>Learn more<img src='/icons/right-arrow-white.png' className='ml-2 w-[30px] h-[30px] self-center'/></a>
+                    <a className='flex rounded-lg cursor-pointer p-2 bg-center relative w-[175px] font-aclonica border-[1px] border-slate-100' href='/catalog'>Learn more<img src='/icons/right-arrow-white.png' className='ml-2 w-[30px] h-[30px] self-center'/></a>
                   </div>
                 </div>
                 
