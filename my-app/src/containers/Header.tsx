@@ -2,6 +2,7 @@
 import '@/containers/header.css';
 import { MoonStarIcon, Sun } from "lucide-react";
 import React from "react";
+import Link from 'next/link';
 
 
 const Header = () => {
@@ -36,7 +37,9 @@ const Header = () => {
                         <img src="/icons/loop.png" className="w-[20px] h-[20px]" alt="" />
                     </div>
                     <div className='flex items-center'>
-                        <button className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]">Log In</button>
+                        <Link href='/login'>
+                            <button className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]">Sign In</button>
+                        </Link>
                     </div>
                     <span className="flex items-center relative w-[2px] h-[30px] mx-[20px] bg-[#3415D0]"></span>
                     <div className={"flex relative themes items-center"}data-icon={'sun'}>
