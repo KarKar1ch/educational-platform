@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form';
@@ -18,7 +19,9 @@ import LeftArrow from "@/components/icon/Left-arrow";
 const AuthPage = ()=>{
     const getView = authView((state)=>state.getView);
     const updateView = authView((state)=>state.updateView);
+    
     /* const [isView,setIsView] = useState('signin'); */
+
     const scheme = getView() === 'signup-2' ? signupScheme : loginScheme
     const {register, handleSubmit,formState:{errors}} = useForm<AuthForm>({
         defaultValues:{
