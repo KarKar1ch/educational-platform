@@ -1,3 +1,4 @@
+
 "use client"
 import React from "react";
 import { useForm } from 'react-hook-form';
@@ -10,6 +11,7 @@ import Instagram from "@/components/icon/Insta";
 const AuthPage = ()=>{
 
     const {register, handleSubmit} = useForm<AuthForm>()
+const AuthPage = ()=>{
 
     const onSubmit = () => {
         
