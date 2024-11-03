@@ -8,12 +8,11 @@ import Button from "@/components/Button";
 import Google from "@/components/icon/Google";
 import Instagram from "@/components/icon/Insta";
 
-const AuthPage = ()=>{
+const AuthPage = () => {
 
     const {register, handleSubmit} = useForm<AuthForm>()
-const AuthPage = ()=>{
 
-    const onSubmit = () => {
+    const onSubmit = (data:any) => {
         
     }
 
@@ -61,6 +60,10 @@ const AuthPage = ()=>{
             <div className="w-[50%] flex">
                 <div>
                     <ImgAuth/>
+                    <h2>Welcome to Educational Platform</h2>
+                    <p>By continuing,you agree to our User Agreement and acknowledge tha you understand the Privacy Policy</p>
+                </div>
+                <div>
                 </div>
             </div>
         </div>
