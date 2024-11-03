@@ -6,9 +6,8 @@ const Google = () => {
         <Image 
             src="/icons/social/icons8-google-25.png" 
             alt="google"
-            width={16}
-            height={16}
-            className="mx-1"
+            width={25}
+            height={25}
         />
     )
 }
