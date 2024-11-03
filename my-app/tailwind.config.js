@@ -11,13 +11,17 @@ module.exports = {
   theme: {
   	extend: {
   		boxShadow: {
-  			navbar: '0px 0px 10px black'
+  			'navbar': '0px 0px 10px black',
+        'auth':'0px 0px 8px black'
   		},
   		fontFamily: {
   			'aclonica': ['Aclonica']
   		},
       backgroundColor:{
-        'dBlue-lBlue':'linear-gradient(to bottom, #124AE4, #4C77EC);'
+        'dBlue-lBlue':'linear-gradient(to bottom, #124AE4, #4C77EC)',
+      },
+      backgroundImage:{
+        'blueTriangle':'linear-gradient(150deg, white 50%, rgba(76, 119, 236,0.7) 50.09%, #4C77EC 50%)'
       },
       transitionProperty:{
         'bg-in-out':'transition:background-color',

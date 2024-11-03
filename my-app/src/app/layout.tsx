@@ -1,5 +1,4 @@
 
-import Header from "@/containers/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -11,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}:any) {
   return (
-    <html lang="en" className="w-[100%] h-[100%]">
-      <body className="w-full">
+    <html lang="en" className="w-full min-h-full">
+      <body className="w-full h-full">
           {children}
       </body>
     </html>
