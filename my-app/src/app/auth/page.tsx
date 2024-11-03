@@ -12,7 +12,7 @@ const AuthPage = () => {
 
     const {register, handleSubmit} = useForm<AuthForm>()
 
-    const onSubmit = (data:any) => {
+    const onSubmit = () => {
         
     }
 
