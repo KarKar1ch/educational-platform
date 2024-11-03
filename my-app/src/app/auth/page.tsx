@@ -69,10 +69,10 @@ const AuthPage = ()=>{
                 </div>
                 <form className="flex flex-col w-full h-full" onSubmit={handleSubmit(async(data)=>{await getRequest(data,getView())})}>
                     <div>
-                        <h1 className="font-bold text text-2xl ml-4 mt-1">Log In</h1>
-                        <div className="flex flex-col mt-6 text-[17px] font-medium">
-                            <Button className="mb-[10px] pr-[23px] h-[36px] text-rose-50 flex items-center justify-center"><Google/>Sign In with Google</Button>
-                            <Button className="flex items-center  h-[36px] justify-center text-rose-50"><Instagram/>Sign In with Instagram</Button>
+                        <h1 className="font-bold text text-2xl text-center">Log In</h1>
+                        <div className=" ">
+                            <Button className="my-[10px]"><Google/>Sign In with Instagram</Button>
+                            <Button><Instagram/>Sign In with Google</Button>
                         </div>
                     </div>
                     <div className="flex my-[10px] h-[24px] items-center">
