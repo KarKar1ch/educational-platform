@@ -1,14 +1,17 @@
 "use client"
 import React from "react";
 import { useForm } from 'react-hook-form';
-
 import ImgAuth from "@/components/img/ImgAuth";
+import { AuthForm } from "@/types/auth/form";
+import Button from "@/components/Button";
+import Google from "@/components/icon/Google";
+import Instagram from "@/components/icon/Insta";
 
 const AuthPage = ()=>{
 
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit} = useForm<AuthForm>()
 
-    const onSubmit = (data:any) => {
+    const onSubmit = () => {
         
     }
 
@@ -20,8 +23,8 @@ const AuthPage = ()=>{
                     <div>
                         <h1 className="font-bold text text-2xl text-center">Log In</h1>
                         <div className=" ">
-                            <button className="w-full bg-[#3E63F5] text-white rounded-3xl mb-[10px]">Sign In with Instagram</button>
-                            <button className="w-full bg-[#3E63F5] text-white rounded-3xl ">Sign In with Google</button>
+                            <Button className="my-[10px]"><Google/>Sign In with Instagram</Button>
+                            <Button><Instagram/>Sign In with Google</Button>
                         </div>
                     </div>
                     <div className="my-[10px]">
@@ -46,7 +49,7 @@ const AuthPage = ()=>{
                         </div>
                         <button className = "">New to our Platform?</button>
                     </div>
-                    <div className="flex justify-center"><button className="w-[50%] bg-[#3E63F5] text-white rounded-3xl mt-[25px]" type="submit">Log In</button></div>
+                    <div className="flex justify-center"><Button className="mt-[15px]" type="submit">Log IN</Button></div>
                 </form>
             </div>
             <div className="w-[50%] inline-block">
