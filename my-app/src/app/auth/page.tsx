@@ -85,6 +85,10 @@ const AuthPage = ()=>{
             <div className="w-[50%] flex">
                 <div>
                     <ImgAuth/>
+                    <h2>Welcome to Educational Platform</h2>
+                    <p>By continuing,you agree to our User Agreement and acknowledge tha you understand the Privacy Policy</p>
+                </div>
+                <div>
                 </div>
             </div>
         </div>
