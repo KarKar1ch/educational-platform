@@ -2,7 +2,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form';
-
 import ImgAuth from "@/components/img/ImgAuth";
 import { AuthForm } from "@/types/auth/form";
 import Button from "@/components/Button";
