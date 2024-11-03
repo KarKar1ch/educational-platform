@@ -1,0 +1,14 @@
+version: '4.3'
+services:
+  dev-db:
+    image: postgres:16
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: Mori
+      POSTGRES_PASSWORD: BODAzopa2020
+      POSTGRES_DB: backend
+    networks:
+      - armori
+networks:
+  armori:
