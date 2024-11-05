@@ -1,23 +1,37 @@
 "use client"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form';
+
 import ImgAuth from "@/components/img/ImgAuth";
 import { AuthForm } from "@/types/auth/form";
 import Button from "@/components/Button";
 import Google from "@/components/icon/Google";
 import Instagram from "@/components/icon/Insta";
+import { yupResolver } from "@hookform/resolvers/yup";
+import authView from "@/zustand/authView";
+import { loginScheme, signupScheme } from "@/components/auth/auth-validation-scheme";
 
 const AuthPage = ()=>{
-
-    const {register, handleSubmit} = useForm<AuthForm>()
-
+    const getView = authView((state)=>state.getView);
+    const updateView = authView((state)=>state.updateView);
+    /* const [isView,setIsView] = useState('signin'); */
+    const scheme = getView() === 'signup-2' ? signupScheme : loginScheme
+    const {register, handleSubmit,} = useForm<AuthForm>({
+        defaultValues:{
+            email:'',
+            password:'',
+            userName:getView() === 'signup-2' ? '' : undefined
+        },
+        resolver:yupResolver(scheme)
+    })
     const onSubmit = () => {
         
     }
 
     return(
     <div  className="flex bg-blueTriangle justify-center items-center h-screen">
-        <div className="w-[800px] h-[500px] flex bg-white shadow-auth rounded-lg overflow-hidden">
+        {getView() === 'signin' && (
+            <div className="w-[800px] h-[500px] flex bg-white shadow-auth rounded-lg overflow-hidden">
             <div className="w-[50%] p-7 flex">
                 <form className="flex flex-col w-full" onSubmit={handleSubmit(onSubmit)}>
                     <div>
@@ -46,7 +60,7 @@ const AuthPage = ()=>{
                                 <input  
                                     className="w-full h-full p-[10px] outline-none border border-[#3E63F5] rounded-xl mb-[10px]"
                                     placeholder="password"
-                                    type="password"
+                                    type="text"
                                     {...register('password')}
                                 />
                             </div>
@@ -62,6 +76,9 @@ const AuthPage = ()=>{
                 </div>
             </div>
         </div>
+        )
+    }
+        
     </div>
     
     )
