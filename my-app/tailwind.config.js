@@ -48,6 +48,9 @@ module.exports = {
           '100%':{width:'0',padding:'0',visibility:'hidden',overflow: 'hidden'}
 
         }
+      },
+      colors:{
+        'erorrs':'#D4557B'
       }
   	}
   },

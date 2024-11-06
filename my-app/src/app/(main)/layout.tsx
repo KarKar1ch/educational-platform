@@ -9,13 +9,12 @@ export const metadata: Metadata = {
   description: "platform for educational purposes",
 };
 
-export default function RootLayout({children}:any) {
+export default function MainLayout({children}:any) {
   return (
-    <html lang="en" className="w-[100%] h-[100%]">
-      <body className="w-full">
-        <Header/>
-          {children}
-      </body>
-    </html>
+    <>
+      <Header key="main-header"/>
+        <main>{children}</main>
+    </>
+      
   );
 }
