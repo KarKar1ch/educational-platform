@@ -20,9 +20,9 @@ const Header = () => {
                             </span>
                         </li>
                         <li className="mx-[20px]">
-                            <span className="flex relative ">
+                            <a href='/about' className="flex relative ">
                                 About
-                            </span>
+                            </a>
                         </li>
                         <li className="mx-[20px]">
                             <span className="flex relative ">

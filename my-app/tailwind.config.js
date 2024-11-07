@@ -21,7 +21,7 @@ module.exports = {
         'dBlue-lBlue':'linear-gradient(to bottom, #124AE4, #4C77EC)',
       },
       backgroundImage:{
-        'blueTriangle':'linear-gradient(150deg, white 50%, rgba(76, 119, 236,0.7) 50.09%, #4C77EC 50%)'
+        'blueTriangle':'linear-gradient(158deg, white 45%, rgba(76, 119, 236,0.7) 45.09%, #4C77EC 55%)'
       },
       transitionProperty:{
         'bg-in-out':'transition:background-color',

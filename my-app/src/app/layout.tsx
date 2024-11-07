@@ -1,4 +1,5 @@
 
+import Header from "@/containers/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -12,6 +13,7 @@ export default function RootLayout({children}:any) {
   return (
     <html>
       <body>
+        <Header/>
           {children}
       </body>
     </html>

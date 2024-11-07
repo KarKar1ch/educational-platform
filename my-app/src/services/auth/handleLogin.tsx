@@ -13,27 +13,52 @@ export const saveTokensToCookies = async(accessToken:string,refreshToken:string)
     });
 }
 
-export const handleLogin = async(data:any) => {
+export const handleLogin = async(data:any,view:string) => {
         console.log('Email:',data.email);
         console.log('Password:',data.password);
         console.log('Handle login called');
-        
-        try{
-            console.log('test');
-            const res = await axios.post('/auth/signin',{
-                ...data
-            })
-            if(res.data.tokens){
-                alert('Login Successful!');
-                console.log('HandleLogin True!');
-                saveTokensToCookies(res.data.tokens.access_token,res.data.tokens.refresh_token);
-                console.log('Then is ok');
-                
-                window.location.href = '/about';
+        if(view === 'signin'){
+            try{
+                console.log('test');
+                const res = await axios.post('/auth/signin',{
+                    ...data
+                })
+                if(res.data.tokens){
+                    alert('Login Successful!');
+                    console.log('HandleLogin True!');
+                    saveTokensToCookies(res.data.tokens.access_token,res.data.tokens.refresh_token);
+                    console.log('Then is ok');
+                    
+                    window.location.href = '/about';
+                    
+                }
+            }catch(err){
+                console.error('There is an error');
                 
             }
-        }catch(err){
-            console.error('There is an error');
-            
+        }
+        else{
+            console.log('Email:',data.email);
+            console.log('Password:',data.password);
+            console.log('UserName:',data.username);
+            console.log('Handle login called');
+            try{
+                console.log('test');
+                const res = await axios.post('/auth/signup',{
+                    ...data
+                })
+                if(res.data.tokens){
+                    alert('Login Successful!');
+                    console.log('HandleLogin True!');
+                    saveTokensToCookies(res.data.tokens.access_token,res.data.tokens.refresh_token);
+                    console.log('Then is ok');
+                    
+                    window.location.href = '/about';
+                    
+                }
+            }catch(err){
+                console.error('Signup error:', err);
+                
+            }
         }
 }
