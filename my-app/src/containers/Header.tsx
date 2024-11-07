@@ -37,6 +37,7 @@ const Header = () => {
                         <img src="/icons/loop.png" className="w-[20px] h-[20px]" alt="" />
                     </div>
                     <div className='flex items-center'>
+                        <a className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]" href='/auth'>Log In</a>
                         <Link href='/login'>
                             <button className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]">Sign In</button>
                         </Link>
