@@ -17,14 +17,17 @@ export class AuthService{
             }
         })
         if(userExist) throw new BadRequestException('This user already exists!')
-
-        const hash = await argon.hash(dto.hash);
+        console.log(dto.email);
+        console.log(dto.password);
+        console.log(dto.username);
+        
+        const hash = await argon.hash(dto.password);
         try{
             const user = await this.prisma.user.create({
                 data:{
                     email:dto.email,
                     hash:hash,
-                    userName:dto.userName
+                    userName:dto.username
                 },
                 select:{
                     id:true,

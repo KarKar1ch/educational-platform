@@ -7,9 +7,9 @@ export class AuthDto{
 
     @IsNotEmpty()
     @IsString()
-    hash:string
+    password:string
 
     @IsNotEmpty()
     @IsString()
-    userName:string
+    username:string
 }
