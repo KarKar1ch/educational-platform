@@ -1,24 +1,29 @@
-
+"use client"
 import '@/containers/header.css';
 import { MoonStarIcon, Sun } from "lucide-react";
 import React from "react";
 import Link from 'next/link';
-
+import Catalog from '@/components/interface/Catalog';
+import useModal from '@/zustand/modal';
 
 const Header = () => {
+
+    const{ open } = useModal();
+
     return(
-        <header>
+        <header className='z-0'>
             <nav className="z-10 shadow-navbar p-2 flex relative h-[100px] w-full">
                 <a href="/home" className="flex text-[32px] font-aclonica ml-[100px] my-auto relative w-auto">Educational Platform</a>
                 <img src="/img/leaf.png" alt="" className="flex relative my-auto w-[50px] h-[50px]" />
                 <div className="flex relative my-auto text-[20px]">
                     <ul className="flex relative ml-[100px] w-auto">
                         <li className="mx-[20px]">
-                            <button className="flex relative">
-                                <img src="/icons/category.png" className="w-[16px] h-[16px] mr-1 my-auto" alt="" />
+                            <button className="flex relative" onClick={open}>
+                                <img src="/icons/category.png" className="w-[16px] h-[16px] mr-1 my-auto" alt=""  />
                                 Catalog
                                 <img src="/icons/down-arrow.png" className="w-[18px] h-[18px] my-auto" alt="" />
                             </button>
+                            <Catalog/>
                         </li>
                         <li className="mx-[20px]">
                             <a href='/about' className="flex relative ">

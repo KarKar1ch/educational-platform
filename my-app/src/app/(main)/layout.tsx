@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 export default function MainLayout({children}:any) {
   return (
     <>
-      <Header key="main-header"/>
         <main>{children}</main>
     </>
       

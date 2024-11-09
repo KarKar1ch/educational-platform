@@ -14,4 +14,6 @@ const authView = create<State & Action>((set:any,get:any)=>({
     updateView:(view:string)=>set({view}),
     getView:()=>get().view
 }))
+
+
 export default authView;

@@ -1,7 +1,8 @@
 "use client"
-import axios from "@/app/api/axios";
+import axios from 'axios';
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+
 
 export const saveTokensToCookies = async(accessToken:string,refreshToken:string):Promise<void>=>{
     const accessTokenExpiration = new Date(new Date().getTime() + 15 * 60 * 1000);
@@ -13,10 +14,14 @@ export const saveTokensToCookies = async(accessToken:string,refreshToken:string)
     });
 }
 
+
 export const handleLogin = async(data:any,view:string) => {
+
+
         console.log('Email:',data.email);
         console.log('Password:',data.password);
         console.log('Handle login called');
+
         if(view === 'signin'){
             try{
                 console.log('test');
@@ -34,7 +39,6 @@ export const handleLogin = async(data:any,view:string) => {
                 }
             }catch(err){
                 console.error('There is an error');
-                
             }
         }
         else{

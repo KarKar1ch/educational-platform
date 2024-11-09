@@ -5,12 +5,11 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import ImgAuth from "@/components/img/ImgAuth";
 import { AuthForm } from "@/types/auth/form";
-import Button from "@/components/Button";
+import Button from "@/components/interface/Button";
 import Google from "@/components/icon/Google";
 import Instagram from "@/components/icon/Insta";
 import { yupResolver } from "@hookform/resolvers/yup";
 import authView from "@/zustand/authView";
-
 import { handleLogin } from "@/services/auth/handleLogin";
 import { loginScheme, signupScheme, signupScheme2 } from "@/services/auth/auth-validation-scheme";
 import LeftArrow from "@/components/icon/Left-arrow";
@@ -20,7 +19,8 @@ const AuthPage = ()=>{
     const [isEmail,setIsEmail] = useState('')
     const getView = authView((state)=>state.getView);
     const updateView = authView((state)=>state.updateView);
-    
+
+
     /* const [isView,setIsView] = useState('signin'); */
     const scheme = ():yup.ObjectSchema<any> =>{
         if(getView() === 'signin'){
@@ -47,11 +47,14 @@ const AuthPage = ()=>{
             case 'signin':
                 await handleLogin({email:data.email,password:data.password},'signin');
                 break;
+
             case 'signup-1':
+
                 await setIsEmail(`${data.email}`);
                 await updateView('signup-2');
                 break;
             case 'signup-2':
+
                 await handleLogin({email:isEmail,password:data.password,username:data.username},'signup')
                 break;
         }
@@ -71,8 +74,8 @@ const AuthPage = ()=>{
                     <div>
                         <h1 className="font-bold text text-2xl text-center">Log In</h1>
                         <div className=" ">
-                            <Button className="my-[10px]"><Google/>Sign In with Instagram</Button>
-                            <Button><Instagram/>Sign In with Google</Button>
+                            <Button className="my-[10px]">Sign In with Instagram</Button>
+                            <Button>Sign In with Google</Button>
                         </div>
                     </div>
                     <div className="flex my-[10px] h-[24px] items-center">
