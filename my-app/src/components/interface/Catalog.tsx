@@ -37,7 +37,7 @@ const Catalog = () => {
         <div className="bg-white p-4 rounded-3xl shadow-lg w-[1150px] h-[405px]">
             <div>
                 <input
-                className="w-full h-[45px] rounded-[18px]"
+                className="w-full h-[45px] rounded-[18px] border-[2px] border-[#C9C9C9] focus:outline-none"
                 type="text"
                 placeholder="Enter the skill you want to acquire"
                 />

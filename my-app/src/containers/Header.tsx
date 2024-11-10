@@ -5,10 +5,11 @@ import React from "react";
 import Link from 'next/link';
 import Catalog from '@/components/interface/Catalog';
 import useModal from '@/zustand/modal';
+import { IoIosArrowDown } from "react-icons/io";
 
 const Header = () => {
 
-    const{ open } = useModal();
+    const{ open, isOpen } = useModal();
 
     return(
         <header className='z-0'>
@@ -18,10 +19,14 @@ const Header = () => {
                 <div className="flex relative my-auto text-[20px]">
                     <ul className="flex relative ml-[100px] w-auto">
                         <li className="mx-[20px]">
-                            <button className="flex relative" onClick={open}>
+                            <button className={`flex relative ${isOpen ? 'bg-[#3E63F5] text-white rounded-lg w-[120px] z-[10]' : ''}`} onClick={open}>
                                 <img src="/icons/category.png" className="w-[16px] h-[16px] mr-1 my-auto" alt=""  />
                                 Catalog
-                                <img src="/icons/down-arrow.png" className="w-[18px] h-[18px] my-auto" alt="" />
+                                {isOpen ? (
+                                    <IoIosArrowDown className="ml-1 transition-transform duration-200 transform rotate-0" />
+                                ) : (
+                                    <IoIosArrowDown className="ml-1 transition-transform duration-200 transform rotate-180" />
+                                )}
                             </button>
                             <Catalog/>
                         </li>
@@ -42,7 +47,7 @@ const Header = () => {
                         <img src="/icons/loop.png" className="w-[20px] h-[20px]" alt="" />
                     </div>
                     <div className='flex items-center'>
-                        <a className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]" href='/auth'>Log In</a>
+                        <Link className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]" href='/auth'>Log In</Link>
                         <Link href='/login'>
                             <button className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]">Sign In</button>
                         </Link>
