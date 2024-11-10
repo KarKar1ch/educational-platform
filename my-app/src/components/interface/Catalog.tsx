@@ -24,17 +24,15 @@ const Catalog = () => {
 
     if(!isOpen) return null;
 
+    const handleBackdropClick = (event: React.MouseEvent) => {
+        if (event.target === event.currentTarget) {
+            close();
+        }
+    };
+
     return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" onClick={handleBackdropClick}>
         <div className="bg-white p-[10px] rounded-3xl shadow-lg w-[1150px] h-[405px]">
-            <div className="flex justify-end">
-                <button 
-                className="" 
-                onClick={close}
-                >
-                    X
-                </button>
-            </div>
             <div>
                 <input
                 className="w-full"
