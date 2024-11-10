@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import useModal from "@/zustand/modal";
 import { IoCodeSlash } from "react-icons/io5";
 import Link from "next/link";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Catalog = () => {
 
@@ -32,10 +34,10 @@ const Catalog = () => {
 
     return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" onClick={handleBackdropClick}>
-        <div className="bg-white p-[10px] rounded-3xl shadow-lg w-[1150px] h-[405px]">
+        <div className="bg-white p-4 rounded-3xl shadow-lg w-[1150px] h-[405px]">
             <div>
                 <input
-                className="w-full"
+                className="w-full h-[45px] rounded-[18px]"
                 type="text"
                 placeholder="Enter the skill you want to acquire"
                 />
@@ -55,12 +57,16 @@ const Catalog = () => {
                 )}
             </div>
             <div className="inline-block w-[50%]">
-                <div>
-                    <h1>Популярные</h1>
-                    <button className=""></button>
-                    <button className=""></button>
+                <div className=" flex justify-between">
+                    <div className="inline-block"><h1>Популярные</h1></div>
+                    <div className="inline-block">
+                        <button className="w-[42px] h-[42px] rounded-full bg-[#E7E7E7]"><IoIosArrowBack className=""/></button>
+                        <button className="w-[42px] h-[42px] rounded-full bg-[#E7E7E7]"><IoIosArrowForward className=""/></button>
+                    </div>
                 </div>
-                <div></div>
+                <div>
+                    {/* TODO: популярные педагоги, нужен бэк */}
+                </div>
             </div>
         </div>
     </div>

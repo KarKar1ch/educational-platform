@@ -1,10 +1,15 @@
 'use client'
 
 import menuStorage from "@/zustand/menu";
-import { useEffect, useRef, useState } from "react";
-
+import {useRef} from "react";
+import Catalog from '@/components/interface/Catalog';
+import useModal from '@/zustand/modal';
+import Link from "next/link";
 
 const Menu = ()=>{
+
+    const {open} = useModal();
+
     const divMenuRef = useRef<HTMLDivElement>(null);
     const {updateIsShow,getIsShow} = menuStorage();
     const handleUpdateShow = ()=>{
@@ -34,21 +39,23 @@ const Menu = ()=>{
             }
         }
     }
+
     console.log('This is getIsSHow = ',getIsShow());
     
     return(
         <div className="flex  relative min-w-[300px]">
             <div ref={divMenuRef} className={`hidden flex-col px-4 relative w-[250px] bg-white h-[calc(100vh_-_100px)]`}>
-                <a href="/home" className="flex px-4 mt-5 py-1 relative w-full h-[50px] items-center hover:bg-[#E6E6E6] transition-bg-in-out duration-300 ease-in-out rounded-lg"><img src="/icons/home.png" className="w-[20px] h-[20px] mr-3"/>
+                <Link href="/home" className="flex px-4 mt-5 py-1 relative w-full h-[50px] items-center hover:bg-[#E6E6E6] transition-bg-in-out duration-300 ease-in-out rounded-lg"><img src="/icons/home.png" className="w-[20px] h-[20px] mr-3"/>
                     <span className="text-[16px] text-black">
                         Home
                     </span>
-                </a>
-                <a href="/catalog" className="flex px-4 py-1 relative w-full h-[50px] items-center hover:bg-[#E6E6E6] transition-bg-in-out duration-300 ease-in-out rounded-lg"><img src="/icons/category.png" className="w-[20px] h-[20px] mr-3"/>
+                </Link>
+                <button onClick={open} className="flex px-4 py-1 relative w-full h-[50px] items-center hover:bg-[#E6E6E6] transition-bg-in-out duration-300 ease-in-out rounded-lg"><img src="/icons/category.png" className="w-[20px] h-[20px] mr-3"/>
                     <span className="text-[16px] text-black">
                         Catalog
                     </span>
-                </a>
+                </button>
+                <Catalog/>
             </div>
             <div className={`flex relative w-[50px]`}>
                 <button onClick={handleUpdateShow} className={`flex relative mx-auto my-3 w-[25px] h-[25px]`}>

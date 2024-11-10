@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Footer from '@/containers/Footer';
-import Menu from '@/components/interface/menu';
+import Menu from '@/components/interface/Menu';
 
 export default function Home() {
 
