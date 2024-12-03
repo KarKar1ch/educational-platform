@@ -54,6 +54,9 @@ const AuthPage = ()=>{
                 break;
         }
     }
+    const changeView = (view:string)=>{
+        updateView(view);
+    }
     useEffect(()=>{
         reset();
         clearErrors();
@@ -62,10 +65,10 @@ const AuthPage = ()=>{
     <div  className="flex bg-blueTriangle justify-center items-center h-[calc(100vh_-_100px)]">
             <div className="w-[800px] h-[500px] flex bg-white shadow-auth rounded-lg overflow-hidden">
             <div className="w-[50%] px-7 pb-7 flex flex-col">
-                <div className="flex relative w-full h-[28px] mt-3 items-center">
-                    <a href="/about"><LeftArrow/></a>
-                </div>
                 <form className="flex flex-col w-full h-full" onSubmit={handleSubmit(async(data)=>{await getRequest(data,getView())})}>
+                    <div className="flex relative w-full h-[28px] mt-3 items-center">
+                        <button onClick={()=>{updateView('signin')}}><LeftArrow/></button>
+                    </div>
                     <div>
                         <h1 className="font-bold text text-2xl ml-4 mt-1">Log In</h1>
                         <div className="flex flex-col mt-6 text-[17px] font-medium">
