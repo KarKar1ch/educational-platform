@@ -1,5 +1,16 @@
 version: '4.3'
 services:
+  app:
+    image: armori1/edp_platform:v2.0
+    container_name: edp_platform
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=dev-db
+      - DATABASE_USER=Mori
+      - DATABASE_PASSWORD=BODAzopa2020
+    depends_on:
+      - dev-db
   dev-db:
     image: postgres:16
     ports:
@@ -7,7 +18,7 @@ services:
     environment:
       POSTGRES_USER: Mori
       POSTGRES_PASSWORD: BODAzopa2020
-      POSTGRES_DB: backend
+      POSTGRES_DB: edp_platform
     networks:
       - armori
 networks:
