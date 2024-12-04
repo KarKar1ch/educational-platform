@@ -1,5 +1,3 @@
-
-import '@/containers/header.css';
 import { MoonStarIcon, Sun } from "lucide-react";
 import React from "react";
 
