@@ -1,7 +1,6 @@
 "use client"
 import axios from "@/app/api/axios";
 import Cookies from "js-cookie";
-import { useRouter } from "next/router";
 
 export const saveTokensToCookies = async(accessToken:string,refreshToken:string):Promise<void>=>{
     const accessTokenExpiration = new Date(new Date().getTime() + 15 * 60 * 1000);

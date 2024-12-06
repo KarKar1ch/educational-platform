@@ -9,7 +9,6 @@ import Google from "@/components/icon/Google";
 import Instagram from "@/components/icon/Insta";
 import { yupResolver } from "@hookform/resolvers/yup";
 import authView from "@/zustand/authView";
-
 import { handleLogin } from "@/services/auth/handleLogin";
 import { loginScheme, signupScheme, signupScheme2 } from "@/services/auth/auth-validation-scheme";
 import LeftArrow from "@/components/icon/Left-arrow";
@@ -17,24 +16,23 @@ import LeftArrow from "@/components/icon/Left-arrow";
 
 const AuthPage = ()=>{
     const [isEmail,setIsEmail] = useState('')
-    const getView = authView((state)=>state.getView);
+    const view = authView((state)=>state.view);
     const updateView = authView((state)=>state.updateView);
-    /* const [isView,setIsView] = useState('signin'); */
     const scheme = ():yup.ObjectSchema<any> =>{
-        if(getView() === 'signin'){
+        if(view === 'signin'){
             return loginScheme
-        }else if(getView() === 'signup-2'){
+        }else if(view === 'signup-2'){
             return signupScheme
         }
         else{
             return signupScheme2
         }
     }
-    const {register,reset,clearErrors, handleSubmit,formState:{errors}} = useForm<AuthForm>({
+    const {register,reset,resetField,clearErrors, handleSubmit,formState:{errors}} = useForm<AuthForm>({
         defaultValues:{
             email:'',
             password:'',
-            username:getView() === 'signup-2' ? '' : undefined
+            username:view === 'signup-2' ? '' : undefined
         },
         resolver:yupResolver(scheme())
     })
@@ -47,6 +45,7 @@ const AuthPage = ()=>{
                 break;
             case 'signup-1':
                 await setIsEmail(`${data.email}`);
+                console.log('ERROR TEST!');
                 await updateView('signup-2');
                 break;
             case 'signup-2':
@@ -54,20 +53,28 @@ const AuthPage = ()=>{
                 break;
         }
     }
-    const changeView = (view:string)=>{
-        updateView(view);
-    }
+    const handleButtonClick = async(event: React.MouseEvent) => {
+        authView.getState().updateView("signup-1")
+        const currentView = authView.getState().getView();
+        console.log("This is current view: ",currentView);
+        
+      };
     useEffect(()=>{
+        console.log("It's a view:",view)
         reset();
         clearErrors();
-    },[getView()])
+    },[view])
     return(
     <div  className="flex bg-blueTriangle justify-center items-center h-[calc(100vh_-_100px)]">
             <div className="w-[800px] h-[500px] flex bg-white shadow-auth rounded-lg overflow-hidden">
             <div className="w-[50%] px-7 pb-7 flex flex-col">
-                <form className="flex flex-col w-full h-full" onSubmit={handleSubmit(async(data)=>{await getRequest(data,getView())})}>
+                <form className="flex flex-col w-full h-full" onSubmit={handleSubmit(async(data,event)=>{
+                    event?.preventDefault();
+                    await getRequest(data,view)
+                    
+                    })}>
                     <div className="flex relative w-full h-[28px] mt-3 items-center">
-                        <button onClick={()=>{updateView('signin')}}><LeftArrow/></button>
+                        <button type="button" onClick={()=>{updateView('signin')}}><LeftArrow/></button>
                     </div>
                     <div>
                         <h1 className="font-bold text text-2xl ml-4 mt-1">Log In</h1>
@@ -82,9 +89,9 @@ const AuthPage = ()=>{
                         <div className="w-[50%] h-[2px] bg-[#3E63F5] flex"></div>
                     </div>
                     <div className="flex">
-                        {(getView() === 'signin' || getView() === 'signup-1' || getView() === 'signup-2') && (
+                        {(view === 'signin' || view === 'signup-1' || view === 'signup-2') && (
                         <div className="flex flex-col w-full">
-                            {(getView() === 'signin' || getView() === 'signup-1') && (
+                            {(view === 'signin' || view === 'signup-1') && (
                                 <>
                                     <div className={`flex h-[48px] ${errors.email? '' : 'mb-4'}`}> 
                                         <input 
@@ -100,7 +107,7 @@ const AuthPage = ()=>{
                                 
                                 </>
                             )}
-                            {(getView() === 'signup-2') && (
+                            {(view === 'signup-2') && (
                             <>
                                 <div className={`flex h-[48px] ${errors.username? '' : 'mb-4'}`}> 
                                     <input  
@@ -115,7 +122,7 @@ const AuthPage = ()=>{
                                 )}
                             </>
                             )}
-                            {(getView() === 'signin' || getView() === 'signup-2') && (
+                            {(view === 'signin' || view === 'signup-2') && (
                             <>
                                 <div className="flex h-[48px]">
                                     <input  
@@ -133,8 +140,9 @@ const AuthPage = ()=>{
                         </div>
                         )}
                     </div>
-                    <button onClick={()=>{updateView('signup-1')}} className = "inline-flex relative my-2 border-b-2 border-[#3E63F5] w-[44%]">New to our Platform?</button>
-                    <div className="flex mt-auto justify-center h-[38px] w-full"><Button className="h-full w-[75%] text-[17px] font-medium" type="submit">{getView() === 'signin'? 'Log In': 'Continue'}</Button></div>
+                    <button onClick={handleButtonClick} type="button" className = "inline-flex relative my-2 w-[100%]">New to our Platform?</button>
+                    <div className="flex h-[2px] bg-[#3E63F5] w-[44%]"></div>
+                    <div className="flex mt-auto justify-center h-[38px] w-full"><Button className="h-full w-[75%] text-[17px] font-medium" type="submit">{view === 'signin'? 'Log In': 'Continue'}</Button></div>
                 </form>
             </div>
             <div className="w-[50%] flex">

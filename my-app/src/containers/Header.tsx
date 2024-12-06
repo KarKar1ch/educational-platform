@@ -1,8 +1,11 @@
+import ProfileImg from "@/components/img/ProfileImg";
 import { MoonStarIcon, Sun } from "lucide-react";
 import React from "react";
 
 
-const Header = () => {
+const Header = ({userState}:{userState:string}) => {
+    console.log('It is userState: ',userState);
+    
     return(
         <header>
             <nav className="z-10 shadow-navbar p-2 flex relative h-[100px] w-full">
@@ -34,7 +37,12 @@ const Header = () => {
                         <img src="/icons/loop.png" className="w-[20px] h-[20px]" alt="" />
                     </div>
                     <div className='flex items-center'>
-                        <a className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]" href='/auth'>Log In</a>
+                        {userState === "registered" ? (
+                            <button className="relative flex w-[35px] h-[35px]"><ProfileImg/></button>
+                        ):(
+                            <a className="flex realtive w-[70px] justify-center text-white bg-[#3415D0] p-1 rounded-lg ml-[20px]" href='/auth'>Log In</a>
+                        )}
+                        
                     </div>
                     <span className="flex items-center relative w-[2px] h-[30px] mx-[20px] bg-[#3415D0]"></span>
                     <div className={"flex relative themes items-center"}data-icon={'sun'}>

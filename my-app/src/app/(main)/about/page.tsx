@@ -4,7 +4,6 @@ import Footer from '@/containers/Footer';
 import Menu from '@/components/menu';
 
 export default function Home() {
-
   return (
     <div className="w-full">
       <div className=' '>
