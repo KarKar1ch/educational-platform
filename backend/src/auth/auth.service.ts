@@ -36,14 +36,14 @@ export class AuthService{
                     userName:true
                 }
             })
-            const tokens = await this.generateToken(user.id,user.email);
+            const tokens = await this.generateTokens(user.id,user.email);
             return {user,tokens};
         }
         catch(err){
             throw new ForbiddenException('When trying to add data to DB,something went wrong')
         }
     }
-    async generateToken(userId:number,email:string):Promise<Tokens>{
+    async generateTokens(userId:number,email:string):Promise<Tokens>{
         const payload:JwtPayload = {
             sub:userId,
             email:email
@@ -74,7 +74,11 @@ export class AuthService{
             if(!user){
                 throw new ForbiddenException('Credentials incorrect!')
             }
-            const tokens:Tokens = await this.generateToken(user.id,user.email);
+            const pwMatches = await argon.verify(user.hash,dto.password);
+            if(!pwMatches){
+                throw new ForbiddenException('Password is incorrect!')
+            }
+            const tokens:Tokens = await this.generateTokens(user.id,user.email);
             return {user,tokens};
         }catch(err){
             throw new ForbiddenException('When trying to signin,something went wrong!')
@@ -91,5 +95,25 @@ export class AuthService{
             }
         })
 
+    }
+    async refreshTokens(userId:number,refreshToken:string){
+        const user = await this.prisma.user.findUnique({
+            where:{
+                id:userId
+            },
+            select:{
+                email:true,
+                hashedRt:true,
+
+            }
+        })
+        if(!user || !refreshToken) throw new ForbiddenException('Access denied');
+        console.log('getting RT');
+        const rtMatches = await argon.verify(user.hashedRt,refreshToken);
+        if(!rtMatches){
+            throw new BadRequestException("Refresh token doesn't match!")
+        }
+        const tokens = await this.generateTokens(userId,user.email);
+        return tokens;
     }
 }
